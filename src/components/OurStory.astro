@@ -1,0 +1,113 @@
+---
+const events = [
+  {
+    year: '2019',
+    title: 'Nos conocimos',
+    text: 'Aquí puedes contar cómo os conocisteis. Un momento especial que marcó el inicio de vuestra historia.',
+  },
+  {
+    year: '2021',
+    title: 'Nuestra primera aventura',
+    text: 'Describe aquí algún viaje o momento importante que vivisteis juntos y que os unió aún más.',
+  },
+  {
+    year: '2023',
+    title: 'La pedida',
+    text: 'Y llegó el momento más esperado: la propuesta de matrimonio. Un día que jamás olvidaremos.',
+  },
+  {
+    year: '2025',
+    title: '¡Nos casamos!',
+    text: 'Ahora os invitamos a celebrar con nosotros el día más especial de nuestras vidas.',
+  },
+];
+---
+<section id="nuestra-historia" class="story-section">
+  <div class="container">
+    <h2 class="section-title reveal">Nuestra Historia</h2>
+    <div class="section-divider reveal"><span>✦</span></div>
+
+    <div class="timeline">
+      {events.map(e => (
+        <div class="timeline-item reveal">
+          <span class="timeline-year">{e.year}</span>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-body">
+            <h3>{e.title}</h3>
+            <p>{e.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .story-section {
+    padding: var(--section-padding);
+    background: var(--color-bg);
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: calc(5rem + 0.5px);
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: var(--color-border);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 5rem 1rem 1fr;
+    gap: 0 1.5rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-year {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    letter-spacing: 0.08em;
+    text-align: right;
+    padding-top: 0.3rem;
+  }
+
+  .timeline-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    margin-top: 0.4rem;
+    justify-self: center;
+    flex-shrink: 0;
+  }
+
+  .timeline-body h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
+  }
+
+  .timeline-body p {
+    font-size: 0.88rem;
+    color: var(--color-text-light);
+    line-height: 1.75;
+  }
+
+  @media (max-width: 520px) {
+    .timeline::before { left: 4rem; }
+    .timeline-item { grid-template-columns: 4rem 1rem 1fr; gap: 0 1rem; }
+  }
+</style>

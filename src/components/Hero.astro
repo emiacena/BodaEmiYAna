@@ -1,0 +1,162 @@
+---
+---
+<section id="inicio" class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-pre">Os invitamos a nuestra boda</p>
+    <div class="hero-ornament">✦</div>
+    <h1 class="hero-names">Nombre <em>&amp;</em> Nombre</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-date">Sábado, 00 de Septiembre de 2025</p>
+    <p class="hero-location">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Ceuta, España
+    </p>
+    <a href="#confirmar" class="hero-cta">Confirmar Asistencia</a>
+  </div>
+  <a href="#cuenta-atras" class="hero-scroll" aria-label="Desplazarse hacia abajo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/Las-murallas-Reales-de-Ceuta6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(18, 15, 12, 0.48) 0%,
+      rgba(18, 15, 12, 0.44) 55%,
+      rgba(18, 15, 12, 0.62) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    animation: heroFade 1.4s ease both;
+  }
+
+  .hero-pre {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 1.4rem;
+    font-weight: 300;
+  }
+
+  .hero-ornament {
+    font-size: 1rem;
+    color: var(--color-accent);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.4em;
+    opacity: 0.9;
+  }
+
+  .hero-names {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.18);
+  }
+
+  .hero-names em {
+    font-style: italic;
+    color: #d4aa7d;
+  }
+
+  .hero-rule {
+    width: 56px;
+    height: 1px;
+    background: rgba(255,255,255,0.45);
+    margin: 0 auto 1.5rem;
+  }
+
+  .hero-date {
+    font-size: clamp(0.82rem, 2vw, 1rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.88;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 2.8rem;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.65);
+    color: white;
+    padding: 0.9rem 2.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+  }
+
+  .hero-cta:hover {
+    background: white;
+    color: var(--color-text);
+    border-color: white;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.55);
+    animation: scrollBounce 2.2s ease-in-out infinite;
+    transition: color 0.3s;
+  }
+
+  .hero-scroll:hover { color: rgba(255,255,255,0.9); }
+
+  @keyframes heroFade {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(7px); }
+  }
+
+  @media (max-width: 768px) {
+    .hero { background-attachment: scroll; }
+  }
+</style>

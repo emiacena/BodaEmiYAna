@@ -1,0 +1,121 @@
+---
+---
+<section id="cuenta-atras" class="countdown-section">
+  <div class="container">
+    <p class="countdown-label">Faltan</p>
+    <div class="countdown-grid">
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-days">--</span>
+        <span class="countdown-unit">Días</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">·</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-hours">--</span>
+        <span class="countdown-unit">Horas</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">·</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-minutes">--</span>
+        <span class="countdown-unit">Minutos</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">·</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-seconds">--</span>
+        <span class="countdown-unit">Segundos</span>
+      </div>
+    </div>
+    <p class="countdown-sub">para que empiece la fiesta</p>
+  </div>
+</section>
+
+<style>
+  .countdown-section {
+    padding: 4.5rem 1.5rem;
+    background: var(--color-surface);
+    text-align: center;
+  }
+
+  .countdown-label {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+  }
+
+  .countdown-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+  }
+
+  .countdown-number {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 7vw, 4.2rem);
+    color: var(--color-text);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .countdown-unit {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+  }
+
+  .countdown-sep {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    opacity: 0.4;
+    line-height: 1;
+    margin-top: -1rem;
+  }
+
+  .countdown-sub {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    .countdown-sep { display: none; }
+    .countdown-grid { gap: 1.8rem; }
+  }
+</style>
+
+<script>
+  // Update this date to match your wedding day — format: YYYY-MM-DDTHH:MM:SS
+  const WEDDING_DATE = new Date('2025-09-27T12:00:00');
+
+  function pad(n: number) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const diff = WEDDING_DATE.getTime() - Date.now();
+
+    const days    = Math.max(0, Math.floor(diff / 86_400_000));
+    const hours   = Math.max(0, Math.floor((diff % 86_400_000) / 3_600_000));
+    const minutes = Math.max(0, Math.floor((diff % 3_600_000) / 60_000));
+    const seconds = Math.max(0, Math.floor((diff % 60_000) / 1_000));
+
+    (document.getElementById('cd-days') as HTMLElement).textContent    = pad(days);
+    (document.getElementById('cd-hours') as HTMLElement).textContent   = pad(hours);
+    (document.getElementById('cd-minutes') as HTMLElement).textContent = pad(minutes);
+    (document.getElementById('cd-seconds') as HTMLElement).textContent = pad(seconds);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
