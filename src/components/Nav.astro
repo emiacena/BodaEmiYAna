@@ -2,7 +2,7 @@
 ---
 <nav id="nav" class="nav">
   <div class="nav-inner">
-    <a href="#inicio" class="nav-logo">N &amp; N</a>
+    <a href="#inicio" class="nav-logo">A &amp; E</a>
 
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
       <span></span><span></span><span></span>
@@ -12,7 +12,6 @@
       <li><a href="#nuestra-historia">Historia</a></li>
       <li><a href="#ceremonia">Ceremonia</a></li>
       <li><a href="#banquete">Banquete</a></li>
-      <li><a href="#dresscode">Dresscode</a></li>
       <li><a href="#alojamiento">Alojamiento</a></li>
       <li><a href="#lista-bodas">Lista</a></li>
       <li><a href="#galeria">Galería</a></li>
@@ -49,12 +48,10 @@
   .nav-logo {
     font-family: var(--font-serif);
     font-size: 1.25rem;
-    color: white;
+    color: var(--color-text);
     letter-spacing: 0.12em;
     transition: color 0.3s;
   }
-
-  .nav.scrolled .nav-logo { color: var(--color-text); }
 
   .nav-menu {
     display: flex;
@@ -67,16 +64,16 @@
     font-size: 0.72rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.88);
+    color: var(--color-text-light);
     transition: color 0.25s;
     font-weight: 400;
   }
 
-  .nav.scrolled .nav-menu a { color: var(--color-text-light); }
   .nav-menu a:hover { color: var(--color-accent) !important; }
 
   .nav-cta {
-    border: 1px solid rgba(255,255,255,0.6);
+    border: 1px solid var(--color-accent) !important;
+    color: var(--color-accent) !important;
     padding: 0.45rem 1.1rem !important;
     transition: background 0.25s, color 0.25s, border-color 0.25s !important;
   }
@@ -112,12 +109,10 @@
     display: block;
     width: 22px;
     height: 1.5px;
-    background: white;
+    background: var(--color-text);
     transition: all 0.3s;
     transform-origin: center;
   }
-
-  .nav.scrolled .nav-toggle span { background: var(--color-text); }
 
   .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
