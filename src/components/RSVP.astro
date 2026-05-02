@@ -1,0 +1,266 @@
+---
+// Replace YOUR_FORM_ID with your Formspree form ID — sign up free at formspree.io
+const FORM_ACTION = 'https://formspree.io/f/YOUR_FORM_ID';
+---
+<section id="confirmar" class="rsvp-section">
+  <div class="container">
+    <h2 class="section-title reveal">Confirmar Asistencia</h2>
+    <div class="section-divider reveal"><span>✦</span></div>
+
+    <p class="rsvp-intro reveal">
+      Por favor, confirmad vuestra asistencia antes del <strong>00 de Julio de 2025</strong>.<br/>
+      ¡Nos hace mucha ilusión celebrarlo con vosotros!
+    </p>
+
+    <form
+      id="rsvpForm"
+      class="rsvp-form reveal"
+      action={FORM_ACTION}
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value="Confirmación de asistencia — Nuestra Boda" />
+
+      <div class="form-row form-row--2">
+        <div class="form-group">
+          <label for="rsvp-name">Nombre completo <span aria-hidden="true">*</span></label>
+          <input type="text" id="rsvp-name" name="name" required placeholder="Tu nombre y apellidos" />
+        </div>
+        <div class="form-group">
+          <label for="rsvp-email">Email <span aria-hidden="true">*</span></label>
+          <input type="email" id="rsvp-email" name="email" required placeholder="tu@email.com" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Asistencia <span aria-hidden="true">*</span></label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="attendance" value="Sí, asistiré" required />
+            <span>¡Allí estaré!</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="attendance" value="No puedo asistir" />
+            <span>No podré asistir</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="rsvp-extra" class="rsvp-extra" hidden>
+        <div class="form-row form-row--2">
+          <div class="form-group">
+            <label for="rsvp-guests">Acompañantes</label>
+            <select id="rsvp-guests" name="acompañantes">
+              <option value="Ninguno">Vengo solo/a</option>
+              <option value="1">+ 1 persona</option>
+              <option value="2">+ 2 personas</option>
+              <option value="3">+ 3 personas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rsvp-allergies">Alergias o intolerancias</label>
+            <input type="text" id="rsvp-allergies" name="alergias" placeholder="Ninguna" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-song">¿Qué canción no puede faltar?</label>
+          <input type="text" id="rsvp-song" name="cancion" placeholder="Título y artista..." />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rsvp-message">Mensaje para los novios</label>
+        <textarea id="rsvp-message" name="mensaje" rows="3" placeholder="¡Escríbenos algo bonito!"></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="rsvp-btn" id="rsvpSubmit">
+          Enviar confirmación
+        </button>
+      </div>
+
+      <p id="rsvpSuccess" class="rsvp-success" hidden>
+        ¡Gracias! Hemos recibido tu confirmación. ¡Nos vemos pronto! 🥂
+      </p>
+    </form>
+  </div>
+</section>
+
+<style>
+  .rsvp-section {
+    padding: var(--section-padding);
+    background: var(--color-surface);
+  }
+
+  .rsvp-intro {
+    max-width: 540px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .rsvp-intro strong { color: var(--color-text); }
+
+  .rsvp-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-row { width: 100%; }
+
+  .form-row--2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 500;
+  }
+
+  .form-group label span { color: var(--color-accent); }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.25s;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 90px; }
+
+  .radio-group {
+    display: flex;
+    gap: 2rem;
+    padding-top: 0.3rem;
+  }
+
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--color-text);
+    cursor: pointer;
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .radio-label input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .rsvp-extra {
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .rsvp-extra:not([hidden]) { display: block; }
+
+  .form-submit { text-align: center; margin-top: 0.5rem; }
+
+  .rsvp-btn {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 1rem 3.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s;
+  }
+
+  .rsvp-btn:hover { background: var(--color-accent-dark); }
+  .rsvp-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .rsvp-success {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-accent-dark);
+  }
+
+  @media (max-width: 520px) {
+    .form-row--2 { grid-template-columns: 1fr; }
+    .radio-group { gap: 1.2rem; }
+  }
+</style>
+
+<script>
+  const radios = document.querySelectorAll<HTMLInputElement>('input[name="attendance"]');
+  const extra  = document.getElementById('rsvp-extra') as HTMLElement;
+  const form   = document.getElementById('rsvpForm') as HTMLFormElement;
+  const btn    = document.getElementById('rsvpSubmit') as HTMLButtonElement;
+  const msg    = document.getElementById('rsvpSuccess') as HTMLElement;
+
+  radios.forEach(r => {
+    r.addEventListener('change', () => {
+      extra.hidden = r.value !== 'Sí, asistiré';
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+      if (res.ok) {
+        form.reset();
+        extra.hidden = true;
+        msg.hidden = false;
+        btn.hidden = true;
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Enviar confirmación';
+        alert('Hubo un error. Por favor inténtalo de nuevo.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Enviar confirmación';
+      alert('Hubo un error de red. Por favor inténtalo de nuevo.');
+    }
+  });
+</script>

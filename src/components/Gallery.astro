@@ -1,0 +1,59 @@
+---
+// Add your photo filenames to this array — place all images in /public/
+const photos = [
+  { src: '/Las-murallas-Reales-de-Ceuta6.jpg', alt: 'Las Murallas Reales de Ceuta' },
+  { src: '/292552053.jpg', alt: 'Foto de los novios' },
+  // { src: '/tu-foto-3.jpg', alt: 'Descripción' },
+  // { src: '/tu-foto-4.jpg', alt: 'Descripción' },
+];
+---
+<section id="galeria" class="gallery-section">
+  <div class="container">
+    <h2 class="section-title reveal">Galería</h2>
+    <div class="section-divider reveal"><span>✦</span></div>
+  </div>
+  <div class="gallery-grid reveal">
+    {photos.map(p => (
+      <div class="gallery-item">
+        <img src={p.src} alt={p.alt} loading="lazy" />
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .gallery-section {
+    padding: var(--section-padding);
+    background: var(--color-bg);
+  }
+
+  .gallery-section .container { margin-bottom: 0; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 4px;
+    margin-top: 2rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>

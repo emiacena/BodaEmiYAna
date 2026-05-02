@@ -1,0 +1,117 @@
+---
+const hotels = [
+  {
+    name: 'Hotel Nombre 1',
+    stars: '★★★★',
+    address: 'Calle Ejemplo, 10 · Ceuta',
+    phone: '+34 956 000 000',
+    web: '#',
+  },
+  {
+    name: 'Hotel Nombre 2',
+    stars: '★★★★',
+    address: 'Calle Ejemplo, 24 · Ceuta',
+    phone: '+34 956 000 001',
+    web: '#',
+  },
+  {
+    name: 'Hotel Nombre 3',
+    stars: '★★★',
+    address: 'Calle Ejemplo, 5 · Ceuta',
+    phone: '+34 956 000 002',
+    web: '#',
+  },
+];
+---
+<section id="alojamiento" class="accommodation-section">
+  <div class="container">
+    <h2 class="section-title reveal">Alojamiento</h2>
+    <div class="section-divider reveal"><span>✦</span></div>
+
+    <p class="accommodation-intro reveal">
+      Para facilitar vuestra estancia, os recomendamos los siguientes hoteles cercanos al lugar de celebración.
+      Os recomendamos reservar cuanto antes.
+    </p>
+
+    <div class="hotel-grid">
+      {hotels.map(h => (
+        <div class="hotel-card reveal">
+          <p class="hotel-stars">{h.stars}</p>
+          <h3 class="hotel-name">{h.name}</h3>
+          <p class="hotel-address">{h.address}</p>
+          <a href={`tel:${h.phone.replace(/\s/g, '')}`} class="hotel-phone">{h.phone}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .accommodation-section {
+    padding: var(--section-padding);
+    background: var(--color-bg);
+  }
+
+  .accommodation-intro {
+    max-width: 560px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .hotel-card {
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--color-border);
+    text-align: center;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .hotel-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 20px rgba(184,147,106,0.1);
+  }
+
+  .hotel-stars {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.6rem;
+  }
+
+  .hotel-name {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+  }
+
+  .hotel-address {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .hotel-phone {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .hotel-phone:hover { color: var(--color-accent-dark); }
+
+  @media (max-width: 680px) {
+    .hotel-grid { grid-template-columns: 1fr; max-width: 400px; margin-inline: auto; }
+  }
+</style>

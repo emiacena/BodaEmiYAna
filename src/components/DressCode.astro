@@ -1,0 +1,127 @@
+---
+---
+<section id="dresscode" class="dresscode-section">
+  <div class="container">
+    <h2 class="section-title reveal">Dresscode</h2>
+    <div class="section-divider reveal"><span>✦</span></div>
+
+    <p class="dresscode-tag reveal">Elegante Formal</p>
+    <p class="dresscode-intro reveal">
+      Nos encantaría que vinierais elegantes para estar a la altura del ambiente del día.<br/>
+      Aquí os dejamos algunas indicaciones:
+    </p>
+
+    <div class="dresscode-grid reveal">
+      <div class="dresscode-card">
+        <div class="dresscode-icon" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 4 L6 10 L10 12 L10 32 L26 32 L26 12 L30 10 L24 4"/>
+            <path d="M12 4 Q18 8 24 4"/>
+            <path d="M18 8 L18 14"/>
+            <circle cx="18" cy="16" r="2"/>
+          </svg>
+        </div>
+        <h3>Ellos</h3>
+        <p>Traje oscuro o esmoquin.<br/>Corbata o pajarita.</p>
+      </div>
+
+      <div class="dresscode-card">
+        <div class="dresscode-icon" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M11 4 Q18 2 25 4 L28 10 L22 12 L22 32 L14 32 L14 12 L8 10 Z"/>
+            <path d="M14 12 Q18 16 22 12"/>
+          </svg>
+        </div>
+        <h3>Ellas</h3>
+        <p>Vestido largo o de cóctel.<br/>Tacón o sandalia elegante.</p>
+      </div>
+    </div>
+
+    <div class="dresscode-avoid reveal">
+      <span class="dresscode-avoid-icon" aria-hidden="true">✕</span>
+      <p>Por favor, evitad el <strong>blanco</strong> y el <strong>negro puro</strong></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dresscode-section {
+    padding: var(--section-padding);
+    background: var(--color-surface);
+    text-align: center;
+  }
+
+  .dresscode-tag {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.45rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .dresscode-intro {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+
+  .dresscode-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .dresscode-card {
+    padding: 2rem 1.5rem;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+  }
+
+  .dresscode-icon {
+    color: var(--color-accent);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .dresscode-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+  }
+
+  .dresscode-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .dresscode-avoid {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    border: 1px solid var(--color-border);
+    padding: 0.7rem 1.6rem;
+    background: var(--color-white);
+  }
+
+  .dresscode-avoid-icon {
+    font-size: 0.7rem;
+    color: #c0392b;
+    opacity: 0.7;
+  }
+
+  .dresscode-avoid strong { color: var(--color-text); }
+
+  @media (max-width: 420px) {
+    .dresscode-grid { grid-template-columns: 1fr; max-width: 300px; }
+  }
+</style>
