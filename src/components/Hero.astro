@@ -1,5 +1,7 @@
 ---
 ---
+const base = import.meta.env.BASE_URL;
+---
 <svg class="wc-defs" aria-hidden="true" focusable="false">
   <defs>
     <filter id="wc-hero" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
@@ -18,7 +20,7 @@
 
 <section id="inicio" class="hero">
   <div class="hero-img hero-img--left">
-    <img src="/murallas-acuarela.png" alt="Las Murallas Reales de Ceuta" class="no-wc" />
+    <img src={`${base}murallas-acuarela.png`} alt="Las Murallas Reales de Ceuta" class="no-wc" />
   </div>
 
   <div class="hero-content">
@@ -26,13 +28,13 @@
     <div class="hero-ornament">✦</div>
     <h1 class="hero-names">
       <span class="hero-name-pair">
-        <img src="/icon-bellota.png" class="hero-icon" alt="" aria-hidden="true" />
+        <img src={`${base}icon-bellota.png`} class="hero-icon" alt="" aria-hidden="true" />
         Ana
       </span>
       <em>&amp;</em>
       <span class="hero-name-pair">
         Emi
-        <img src="/icon-dedal.png" class="hero-icon hero-icon--flip" alt="" aria-hidden="true" />
+        <img src={`${base}icon-dedal.png`} class="hero-icon hero-icon--flip" alt="" aria-hidden="true" />
       </span>
     </h1>
     <div class="hero-rule"></div>
@@ -52,7 +54,7 @@
   </div>
 
   <div class="hero-img hero-img--right">
-    <img src="/puerto-acuarela2.png" alt="Puerto de Ceuta" class="no-wc" />
+    <img src={`${base}puerto-acuarela2.png`} alt="Puerto de Ceuta" class="no-wc" />
   </div>
 
   <a href="#nuestra-historia" class="hero-scroll" aria-label="Desplazarse hacia abajo">
