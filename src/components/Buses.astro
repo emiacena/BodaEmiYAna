@@ -1,21 +1,4 @@
 ---
-const buses = [
-  {
-    origin: 'Kiosko de Rafa',
-    departure: '--:-- h',
-    return: '--:-- h',
-  },
-  {
-    origin: 'El Comercial',
-    departure: '--:-- h',
-    return: '--:-- h',
-  },
-  {
-    origin: 'Jerez',
-    departure: '--:-- h',
-    return: '--:-- h',
-  },
-];
 ---
 <section id="autobuses" class="buses-section">
   <div class="container">
@@ -23,36 +6,66 @@ const buses = [
     <div class="section-divider reveal"><span>✦</span></div>
 
     <p class="buses-intro reveal">
-      Para que podáis disfrutar sin preocupaciones, hemos organizado autobuses de ida y vuelta
-      desde distintos puntos. Los horarios exactos os los confirmaremos próximamente.
+      Para que podáis disfrutar sin preocupaciones, hemos organizado autobuses de ida y vuelta.
+      Los horarios exactos os los confirmaremos próximamente.
     </p>
 
-    <div class="buses-grid">
-      {buses.map(b => (
-        <div class="bus-card reveal">
-          <div class="bus-icon" aria-hidden="true">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="8" width="28" height="18" rx="3" stroke="currentColor" stroke-width="1.3" fill="none"/>
-              <path d="M4 14h28" stroke="currentColor" stroke-width="1.3"/>
-              <line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="1.3"/>
-              <circle cx="10" cy="28" r="2.5" stroke="currentColor" stroke-width="1.3" fill="none"/>
-              <circle cx="26" cy="28" r="2.5" stroke="currentColor" stroke-width="1.3" fill="none"/>
-              <path d="M4 22h2M30 22h2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3 class="bus-origin">{b.origin}</h3>
-          <dl class="bus-info">
-            <div class="bus-row">
-              <dt>Salida</dt>
-              <dd>{b.departure}</dd>
-            </div>
-            <div class="bus-row">
-              <dt>Regreso</dt>
-              <dd>{b.return}</dd>
-            </div>
-          </dl>
+    <div class="buses-list">
+
+      <!-- Bus 1: Kiosko de Rafa → El Comercial -->
+      <div class="bus-row-card reveal">
+        <div class="bus-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="28" height="18" rx="3" stroke="currentColor" stroke-width="1.3" fill="none"/>
+            <path d="M4 14h28" stroke="currentColor" stroke-width="1.3"/>
+            <line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="10" cy="28" r="2.5" stroke="currentColor" stroke-width="1.3" fill="none"/>
+            <circle cx="26" cy="28" r="2.5" stroke="currentColor" stroke-width="1.3" fill="none"/>
+          </svg>
         </div>
-      ))}
+        <div class="bus-stops">
+          <span class="bus-stop">Kiosko de Rafa</span>
+          <span class="bus-arrow">→</span>
+          <span class="bus-stop">El Comercial</span>
+        </div>
+        <dl class="bus-info">
+          <div class="bus-detail">
+            <dt>Salida</dt>
+            <dd>--:-- h</dd>
+          </div>
+          <div class="bus-detail">
+            <dt>Regreso</dt>
+            <dd>--:-- h</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Bus 2: Jerez -->
+      <div class="bus-row-card reveal">
+        <div class="bus-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="28" height="18" rx="3" stroke="currentColor" stroke-width="1.3" fill="none"/>
+            <path d="M4 14h28" stroke="currentColor" stroke-width="1.3"/>
+            <line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="10" cy="28" r="2.5" stroke="currentColor" stroke-width="1.3" fill="none"/>
+            <circle cx="26" cy="28" r="2.5" stroke="currentColor" stroke-width="1.3" fill="none"/>
+          </svg>
+        </div>
+        <div class="bus-stops">
+          <span class="bus-stop">Jerez</span>
+        </div>
+        <dl class="bus-info">
+          <div class="bus-detail">
+            <dt>Salida</dt>
+            <dd>--:-- h</dd>
+          </div>
+          <div class="bus-detail">
+            <dt>Regreso</dt>
+            <dd>--:-- h</dd>
+          </div>
+        </dl>
+      </div>
+
     </div>
   </div>
 </section>
@@ -72,64 +85,84 @@ const buses = [
     line-height: 1.8;
   }
 
-  .buses-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .buses-list {
+    display: flex;
+    flex-direction: column;
     gap: 1.2rem;
-    max-width: var(--max-width);
+    max-width: 640px;
     margin: 0 auto;
   }
 
-  .bus-card {
-    padding: 2rem 1.5rem;
+  .bus-row-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
     border: 1px solid var(--color-border);
-    text-align: center;
     transition: border-color 0.25s, box-shadow 0.25s;
   }
 
-  .bus-card:hover {
+  .bus-row-card:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 4px 20px rgba(184,147,106,0.1);
+    box-shadow: 0 4px 20px rgba(110,123,99,0.1);
   }
 
   .bus-icon {
     color: var(--color-accent);
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.2rem;
+    flex-shrink: 0;
   }
 
-  .bus-origin {
+  .bus-stops {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .bus-stop {
     font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 400;
-    margin-bottom: 1.2rem;
+    color: var(--color-text);
+  }
+
+  .bus-arrow {
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    opacity: 0.7;
   }
 
   .bus-info {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.45rem 1rem;
-    width: fit-content;
-    margin: 0 auto;
-    font-size: 0.85rem;
+    grid-template-columns: auto auto;
+    gap: 0.3rem 1.2rem;
+    font-size: 0.82rem;
+    text-align: right;
   }
 
-  .bus-row { display: contents; }
+  .bus-detail { display: contents; }
 
-  .bus-row dt {
+  .bus-detail dt {
     color: var(--color-text);
     font-weight: 500;
     text-align: right;
-    white-space: nowrap;
   }
 
-  .bus-row dd {
+  .bus-detail dd {
     color: var(--color-text-light);
     text-align: left;
   }
 
-  @media (max-width: 680px) {
-    .buses-grid { grid-template-columns: 1fr; max-width: 320px; margin-inline: auto; }
+  @media (max-width: 560px) {
+    .bus-row-card {
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    .bus-info {
+      grid-column: 1 / -1;
+      text-align: left;
+    }
   }
 </style>
