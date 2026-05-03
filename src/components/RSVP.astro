@@ -8,8 +8,8 @@ const FORM_ACTION = 'https://formspree.io/f/YOUR_FORM_ID';
     <div class="section-divider reveal"><span>✦</span></div>
 
     <p class="rsvp-intro reveal">
-      Por favor, confirmad vuestra asistencia antes del <strong>31 de Enero de 2027</strong>.<br/>
-      ¡Nos hace mucha ilusión celebrarlo con vosotros!
+      Confirmad vuestra asistencia antes del <strong>31 de enero de 2027</strong>.<br/>
+      Vuestra presencia hace este día todavía más especial.
     </p>
 
     <form
@@ -22,8 +22,8 @@ const FORM_ACTION = 'https://formspree.io/f/YOUR_FORM_ID';
 
       <div class="form-row form-row--2">
         <div class="form-group">
-          <label for="rsvp-name">Nombre completo <span aria-hidden="true">*</span></label>
-          <input type="text" id="rsvp-name" name="name" required placeholder="Tu nombre y apellidos" />
+          <label for="rsvp-name">Tu nombre <span aria-hidden="true">*</span></label>
+          <input type="text" id="rsvp-name" name="name" required placeholder="Nombre y apellidos" />
         </div>
         <div class="form-group">
           <label for="rsvp-email">Email <span aria-hidden="true">*</span></label>
@@ -36,11 +36,11 @@ const FORM_ACTION = 'https://formspree.io/f/YOUR_FORM_ID';
         <div class="radio-group">
           <label class="radio-label">
             <input type="radio" name="attendance" value="Sí, asistiré" required />
-            <span>¡Allí estaré!</span>
+            <span>¡Cuento los días!</span>
           </label>
           <label class="radio-label">
             <input type="radio" name="attendance" value="No puedo asistir" />
-            <span>No podré asistir</span>
+            <span>No podré estar</span>
           </label>
         </div>
       </div>
@@ -57,20 +57,20 @@ const FORM_ACTION = 'https://formspree.io/f/YOUR_FORM_ID';
             </select>
           </div>
           <div class="form-group">
-            <label for="rsvp-allergies">Alergias o intolerancias</label>
-            <input type="text" id="rsvp-allergies" name="alergias" placeholder="Ninguna" />
+            <label for="rsvp-allergies">Restricciones alimentarias</label>
+            <input type="text" id="rsvp-allergies" name="alergias" placeholder="Alergias, intolerancias..." />
           </div>
         </div>
 
         <div class="form-group">
-          <label for="rsvp-song">¿Qué canción no puede faltar?</label>
-          <input type="text" id="rsvp-song" name="cancion" placeholder="Título y artista..." />
+          <label for="rsvp-song">¿Qué canción pedirías al DJ?</label>
+          <input type="text" id="rsvp-song" name="cancion" placeholder="Título y artista" />
         </div>
       </div>
 
       <div class="form-group">
-        <label for="rsvp-message">Mensaje para los novios</label>
-        <textarea id="rsvp-message" name="mensaje" rows="3" placeholder="¡Escríbenos algo bonito!"></textarea>
+        <label for="rsvp-message">Algo que quieras decirnos</label>
+        <textarea id="rsvp-message" name="mensaje" rows="3" placeholder="Lo que quieras contarnos..."></textarea>
       </div>
 
       <div class="form-submit">
@@ -80,7 +80,7 @@ const FORM_ACTION = 'https://formspree.io/f/YOUR_FORM_ID';
       </div>
 
       <p id="rsvpSuccess" class="rsvp-success" hidden>
-        ¡Gracias! Hemos recibido tu confirmación. ¡Nos vemos pronto! 🥂
+        ¡Gracias! Ya tenemos tu respuesta. ¡Nos vemos el 13 de marzo!
       </p>
     </form>
   </div>

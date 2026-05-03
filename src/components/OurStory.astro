@@ -1,43 +1,95 @@
 ---
-const events = [
-  {
-    year: '2019',
-    title: 'Nos conocimos',
-    text: 'Aquí puedes contar cómo os conocisteis. Un momento especial que marcó el inicio de vuestra historia.',
-  },
-  {
-    year: '2021',
-    title: 'Nuestra primera aventura',
-    text: 'Describe aquí algún viaje o momento importante que vivisteis juntos y que os unió aún más.',
-  },
-  {
-    year: '2023',
-    title: 'La pedida',
-    text: 'Y llegó el momento más esperado: la propuesta de matrimonio. Un día que jamás olvidaremos.',
-  },
-  {
-    year: '2025',
-    title: '¡Nos casamos!',
-    text: 'Ahora os invitamos a celebrar con nosotros el día más especial de nuestras vidas.',
-  },
-];
 ---
 <section id="nuestra-historia" class="story-section">
   <div class="container">
     <h2 class="section-title reveal">Nuestra Historia</h2>
     <div class="section-divider reveal"><span>✦</span></div>
 
-    <div class="timeline">
-      {events.map(e => (
-        <div class="timeline-item reveal">
-          <span class="timeline-year">{e.year}</span>
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <div class="timeline-body">
-            <h3>{e.title}</h3>
-            <p>{e.text}</p>
+    <div class="route">
+
+      <!-- Sevilla -->
+      <div class="stop reveal">
+        <div class="stop-marker">
+          <svg class="pin" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 8.5 12 20 12 20s12-11.5 12-20C24 5.373 18.627 0 12 0z" fill="currentColor"/>
+            <circle cx="12" cy="12" r="4.5" fill="white" opacity="0.9"/>
+          </svg>
+          <div class="stop-line"></div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-city">Sevilla</span>
+          <p class="stop-text">Aquí todo comenzó. Nos conocimos entre sus calles y pasamos gran parte de nuestra vida juntos bajo el mismo sol.</p>
+        </div>
+      </div>
+
+      <!-- Londres -->
+      <div class="stop reveal">
+        <div class="stop-marker">
+          <svg class="pin" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 8.5 12 20 12 20s12-11.5 12-20C24 5.373 18.627 0 12 0z" fill="currentColor"/>
+            <circle cx="12" cy="12" r="4.5" fill="white" opacity="0.9"/>
+          </svg>
+          <div class="stop-line"></div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-city">Londres</span>
+          <p class="stop-text">Emi cruzó el canal. Un capítulo en la capital que demostró que la distancia no es rival para lo que ya era inevitable.</p>
+        </div>
+      </div>
+
+      <!-- Ceuta & Puerto — parada simultánea -->
+      <div class="stop stop--split reveal">
+        <div class="stop-marker">
+          <svg class="pin" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 8.5 12 20 12 20s12-11.5 12-20C24 5.373 18.627 0 12 0z" fill="currentColor"/>
+            <circle cx="12" cy="12" r="4.5" fill="white" opacity="0.9"/>
+          </svg>
+          <div class="stop-line"></div>
+        </div>
+        <div class="stop-split-cards">
+          <div class="stop-card stop-card--half">
+            <span class="stop-city">Ceuta</span>
+            <p class="stop-text">Ana puso rumbo al Estrecho.</p>
+          </div>
+          <div class="split-connector" aria-hidden="true">
+            <span>↔</span>
+          </div>
+          <div class="stop-card stop-card--half">
+            <span class="stop-city">El Puerto</span>
+            <p class="stop-text">Emi eligió la bahía de Cádiz.</p>
           </div>
         </div>
-      ))}
+      </div>
+
+      <!-- Ceuta (Ana convence a Emi) -->
+      <div class="stop reveal">
+        <div class="stop-marker">
+          <svg class="pin" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 8.5 12 20 12 20s12-11.5 12-20C24 5.373 18.627 0 12 0z" fill="currentColor"/>
+            <circle cx="12" cy="12" r="4.5" fill="white" opacity="0.9"/>
+          </svg>
+          <div class="stop-line"></div>
+        </div>
+        <div class="stop-card">
+          <span class="stop-city">Ceuta, otra vez</span>
+          <p class="stop-text">Ana convenció a Emi. El Estrecho nos reunió y Ceuta fue testigo de un nuevo capítulo juntos.</p>
+        </div>
+      </div>
+
+      <!-- El Puerto (Emi convence a Ana) — última parada -->
+      <div class="stop stop--last reveal">
+        <div class="stop-marker">
+          <svg class="pin pin--last" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 8.5 12 20 12 20s12-11.5 12-20C24 5.373 18.627 0 12 0z" fill="currentColor"/>
+            <circle cx="12" cy="12" r="4.5" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="stop-card">
+          <span class="stop-city">El Puerto de Santa María</span>
+          <p class="stop-text">Emi convenció a Ana. Y juntos cruzamos hacia El Puerto, donde hoy escribimos el capítulo más bonito de nuestra historia.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -48,66 +100,120 @@ const events = [
     background: var(--color-bg);
   }
 
-  .timeline {
-    position: relative;
-    max-width: 680px;
+  .route {
+    max-width: 600px;
     margin: 0 auto;
   }
 
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: calc(5rem + 0.5px);
-    top: 0.5rem;
-    bottom: 0.5rem;
-    width: 1px;
-    background: var(--color-border);
-  }
-
-  .timeline-item {
+  /* ── Each stop ── */
+  .stop {
     display: grid;
-    grid-template-columns: 5rem 1rem 1fr;
+    grid-template-columns: 2.5rem 1fr;
     gap: 0 1.5rem;
-    margin-bottom: 3rem;
-    align-items: start;
+    margin-bottom: 0;
   }
 
-  .timeline-item:last-child { margin-bottom: 0; }
+  /* ── Pin + vertical line ── */
+  .stop-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-  .timeline-year {
-    font-family: var(--font-serif);
-    font-size: 0.8rem;
+  .pin {
+    width: 14px;
+    height: 19px;
     color: var(--color-accent);
-    letter-spacing: 0.08em;
-    text-align: right;
-    padding-top: 0.3rem;
-  }
-
-  .timeline-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    margin-top: 0.4rem;
-    justify-self: center;
     flex-shrink: 0;
+    margin-top: 0.1rem;
   }
 
-  .timeline-body h3 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin-bottom: 0.4rem;
+  .pin--last {
     color: var(--color-text);
   }
 
-  .timeline-body p {
+  .stop-line {
+    width: 1px;
+    flex: 1;
+    min-height: 2rem;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--color-accent) 0px,
+      var(--color-accent) 5px,
+      transparent 5px,
+      transparent 11px
+    );
+    opacity: 0.4;
+    margin-top: 0.3rem;
+  }
+
+  /* ── Card ── */
+  .stop-card {
+    padding: 0 0 2.5rem 0;
+  }
+
+  .stop-city {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--color-text);
+    margin-bottom: 0.4rem;
+    padding-top: 0.05rem;
+  }
+
+  .stop-text {
     font-size: 0.88rem;
     color: var(--color-text-light);
     line-height: 1.75;
   }
 
+  /* ── Split stop (Ceuta & Puerto simultáneos) ── */
+  .stop--split .stop-split-cards {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .stop-card--half {
+    flex: 1;
+    padding-bottom: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 1rem 1.1rem;
+    border-radius: 2px;
+  }
+
+  .stop-card--half .stop-city {
+    font-size: 1rem;
+  }
+
+  .split-connector {
+    display: flex;
+    align-items: center;
+    padding-top: 0.6rem;
+    color: var(--color-accent);
+    opacity: 0.6;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  /* ── Last stop: no line ── */
+  .stop--last .stop-card {
+    padding-bottom: 0;
+  }
+
   @media (max-width: 520px) {
-    .timeline::before { left: 4rem; }
-    .timeline-item { grid-template-columns: 4rem 1rem 1fr; gap: 0 1rem; }
+    .stop {
+      grid-template-columns: 2rem 1fr;
+      gap: 0 1rem;
+    }
+
+    .stop--split .stop-split-cards {
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .split-connector { display: none; }
   }
 </style>

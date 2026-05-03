@@ -1,0 +1,234 @@
+---
+---
+<section id="el-dia" class="events-section">
+  <div class="container">
+    <h2 class="section-title reveal">El Gran Día</h2>
+    <div class="section-divider reveal"><span>✦</span></div>
+
+    <div class="events-grid">
+
+      <!-- Ceremonia -->
+      <div class="event-block reveal">
+        <div class="event-badge">Ceremonia</div>
+        <h3 class="event-title">Decimos que sí</h3>
+        <div class="event-details">
+          <div class="event-detail">
+            <span class="detail-label">Hora</span>
+            <span>13:00 h</span>
+          </div>
+          <div class="event-detail">
+            <span class="detail-label">Lugar</span>
+            <span>Finca Los Azahares<br/><em>Jerez de la Frontera</em></span>
+          </div>
+          <div class="event-detail">
+            <span class="detail-label">Fecha</span>
+            <span>Sábado, 13 de Marzo de 2027</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divisor -->
+      <div class="events-divider" aria-hidden="true">
+        <div class="divider-line"></div>
+        <span class="divider-dot">✦</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Banquete -->
+      <div class="event-block reveal">
+        <div class="event-badge event-badge--reception">Banquete</div>
+        <h3 class="event-title">Celebramos juntos</h3>
+        <div class="event-details">
+          <div class="event-detail">
+            <span class="detail-label">Hora</span>
+            <span>14:30 h</span>
+          </div>
+          <div class="event-detail">
+            <span class="detail-label">Formato</span>
+            <span>Cóctel de bienvenida</span>
+          </div>
+          <div class="event-detail">
+            <span class="detail-label"></span>
+            <span>Plato y postre en mesa</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divisor -->
+      <div class="events-divider" aria-hidden="true">
+        <div class="divider-line"></div>
+        <span class="divider-dot">✦</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Fiesta -->
+      <div class="event-block reveal">
+        <div class="event-badge event-badge--party">Fiesta</div>
+        <h3 class="event-title">A bailar</h3>
+        <div class="event-details">
+          <div class="event-detail">
+            <span class="detail-label">Barra libre</span>
+            <span>18:00 h</span>
+          </div>
+          <div class="event-detail">
+            <span class="detail-label">Recena</span>
+            <span>22:00 h</span>
+          </div>
+          <div class="event-detail">
+            <span class="detail-label">Fin de fiesta</span>
+            <span>01:00 h</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .events-section {
+    padding: var(--section-padding);
+    background: var(--color-surface);
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: stretch;
+    gap: 0 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ── Each block ── */
+  .event-block {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event-badge {
+    position: absolute;
+    top: -0.85rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: white;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.3rem 1.1rem;
+    white-space: nowrap;
+  }
+
+  .event-badge--reception { background: var(--color-text); }
+  .event-badge--party     { background: var(--color-accent-dark); }
+
+  .event-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 1.4rem;
+    margin-top: 0.4rem;
+  }
+
+  .event-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.55rem 0.9rem;
+    margin-bottom: 1.8rem;
+    text-align: left;
+    width: 100%;
+    flex: 1;
+  }
+
+  .event-detail {
+    display: contents;
+  }
+
+  .detail-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-align: right;
+    white-space: nowrap;
+    padding-top: 0.05rem;
+  }
+
+  .event-detail span:last-child {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+
+  .event-detail em {
+    font-style: normal;
+    color: var(--color-text-light);
+    font-size: 0.8rem;
+  }
+
+  /* ── Divider ── */
+  .events-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .divider-line {
+    width: 1px;
+    height: 40px;
+    background: var(--color-border);
+  }
+
+  .divider-dot {
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    opacity: 0.6;
+  }
+
+  /* ── Map button ── */
+  .event-map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    padding: 0.65rem 1.4rem;
+    transition: background 0.25s, color 0.25s;
+    margin-top: auto;
+  }
+
+  .event-map-btn:hover {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 700px) {
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .events-divider {
+      flex-direction: row;
+      padding: 0.8rem 0;
+    }
+
+    .divider-line {
+      width: 40px;
+      height: 1px;
+    }
+  }
+</style>

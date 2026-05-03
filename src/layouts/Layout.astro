@@ -14,7 +14,7 @@ const { title = 'Nuestra Boda' } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;1,200;1,300&family=Inter:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Moontime&family=Ovo&family=Open+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -31,16 +31,17 @@ const { title = 'Nuestra Boda' } = Astro.props;
   }
 
   :root {
-    --color-bg: #FAFAF7;
-    --color-surface: #F3EDE5;
-    --color-text: #2A2825;
-    --color-text-light: #847B70;
-    --color-accent: #B8936A;
-    --color-accent-dark: #8A6445;
+    --color-bg: #F0EEE9;
+    --color-surface: #E4DED6;
+    --color-text: #545454;
+    --color-text-light: #A49C90;
+    --color-accent: #6E7B63;
+    --color-accent-dark: #4A5442;
     --color-white: #FFFFFF;
-    --color-border: #E5DDD4;
-    --font-serif: 'Josefin Sans', sans-serif;
-    --font-sans: 'Inter', system-ui, sans-serif;
+    --color-border: #CEC8C0;
+    --font-script: 'Moontime', cursive;
+    --font-serif: 'Ovo', Georgia, serif;
+    --font-sans: 'Open Sans', system-ui, sans-serif;
     --section-padding: 5rem 1.5rem;
     --max-width: 900px;
   }
@@ -56,7 +57,13 @@ const { title = 'Nuestra Boda' } = Astro.props;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
+  h1 {
+    font-family: var(--font-script);
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  h2, h3, h4 {
     font-family: var(--font-serif);
     font-weight: 400;
     line-height: 1.3;

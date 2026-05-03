@@ -75,24 +75,21 @@
   }
 
   .event-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    margin-bottom: 2.2rem;
-  }
-
-  .event-row {
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.55rem 1.4rem;
+    margin: 0 auto 2.2rem;
+    width: fit-content;
     font-size: 0.88rem;
   }
+
+  .event-row { display: contents; }
 
   .event-row dt {
     color: var(--color-text);
     font-weight: 500;
-    min-width: 50px;
     text-align: right;
+    white-space: nowrap;
   }
 
   .event-row dd {
