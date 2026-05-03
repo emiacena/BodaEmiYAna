@@ -12,9 +12,9 @@
       <li><a href="#el-dia">El Día</a></li>
       <li><a href="#autobuses">Autobuses</a></li>
       <li><a href="#lista-bodas">Lista</a></li>
-      <li><a href="#galeria">Galería</a></li>
-      <li><a href="#alojamiento">Alojamiento</a></li>
       <li><a href="#confirmar" class="nav-cta">Confirmar</a></li>
+      <li><a href="#alojamiento">Alojamiento</a></li>
+      <li><a href="#galeria">Galería</a></li>
     </ul>
   </div>
 </nav>
@@ -26,12 +26,15 @@
     inset-inline: 0;
     z-index: 1000;
     padding: 1.4rem 2rem;
+    background: rgba(228, 222, 214, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
     transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
   }
 
   .nav.scrolled {
-    background: rgba(240, 238, 233, 0.96);
-    backdrop-filter: blur(12px);
+    background: rgba(228, 222, 214, 0.97);
+    backdrop-filter: blur(14px);
     padding: 0.9rem 2rem;
     box-shadow: 0 1px 16px rgba(0,0,0,0.07);
   }
