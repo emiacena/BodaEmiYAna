@@ -284,34 +284,50 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     50%       { transform: translateX(-50%) translateY(7px); }
   }
 
-  /* ── Mobile: images on sides, names on one line ── */
+  /* ── Mobile: image top, text middle, image bottom ── */
   @media (max-width: 780px) {
     .hero {
-      grid-template-columns: 90px 1fr 90px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
       height: 100svh;
       min-height: 580px;
       padding: 0;
     }
 
-    .hero-img--left  { justify-content: flex-end; overflow: hidden; }
-    .hero-img--right { justify-content: flex-end; overflow: hidden; padding-right: 0; }
-
-    .hero-img img {
-      width: 90px;
-      height: 260px;
-      object-fit: cover;
+    .hero-img--left {
+      grid-column: 1;
+      grid-row: 1;
+      justify-content: center;
+      align-items: flex-end;
+      height: auto;
+      padding-right: 0;
     }
 
+    .hero-content {
+      grid-column: 1;
+      grid-row: 2;
+      padding: 1.5rem 1.5rem;
+    }
+
+    .hero-img--right {
+      grid-column: 1;
+      grid-row: 3;
+      justify-content: center;
+      align-items: flex-start;
+      height: auto;
+      padding-right: 0;
+    }
+
+    .hero-img img,
+    .hero-img img.no-wc,
+    .hero-img--left  img.no-wc,
     .hero-img--right img.no-wc {
-      height: 55vw;
-      max-height: none;
+      height: 28vw;
       width: auto;
-    }
-
-    .hero-img--left img.no-wc {
-      height: 55vw;
       max-height: none;
-      width: auto;
+      max-width: 80vw;
+      object-fit: contain;
     }
 
     .hero-names {
