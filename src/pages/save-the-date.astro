@@ -6,7 +6,7 @@ import { hotels, mapsUrl } from '../data/hotels';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
-  + '&dates=20270313T110000Z/20270313T220000Z'
+  + '&dates=20270313T120000Z/20270314T000000Z'
   + '&text=' + encodeURIComponent('Boda de Ana & Emi')
   + '&details=' + encodeURIComponent('Nos casamos y queremos celebrarlo con vosotros.')
   + '&location=' + encodeURIComponent('Finca Los Azahares, Jerez de la Frontera');
@@ -36,6 +36,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       <div class="std-rule"></div>
 
       <p class="std-date">Sábado, 13 de Marzo de 2027</p>
+      <p class="std-time">De 13:00 a 01:00</p>
       <div class="std-location">
         <span class="std-location-venue">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -47,20 +48,35 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
         <span class="std-location-city">Jerez de la Frontera</span>
       </div>
 
-      <p class="std-invite">
-        Con toda nuestra ilusión, os hacemos llegar nuestra invitación formal
-        para acompañarnos en este día tan especial.
-      </p>
+      <div class="std-invite">
+        <p>Después de darle muchas vueltas, ya hay fecha: nos casamos.</p>
+        <p>
+          Y como esto no tendría ninguna gracia sin vosotros, aquí va nuestra
+          invitación. Será un día largo, de los de comer sin prisa, bailar
+          hasta que cierren y volver a casa sin voz.
+        </p>
+        <p>
+          De momento solo os pedimos una cosa: apuntad el día y no lo deis por
+          perdido. Lo demás — horarios, autobuses, dónde dormir — os lo iremos
+          contando.
+        </p>
+        <p class="std-invite-sign">Nos vemos en Jerez.</p>
+      </div>
 
+      <p class="std-actions-label">Guardad la fecha en vuestro calendario</p>
       <div class="std-actions">
         <a class="std-btn std-btn--primary" href={`${base}boda-ana-y-emi.ics`} download>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
             <rect x="3" y="5" width="18" height="16" rx="2"/>
             <path d="M8 3v4M16 3v4M3 10h18"/>
           </svg>
-          Añadir al calendario
+          Apple, Outlook y otros
         </a>
         <a class="std-btn" href={gcal} target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M8 3v4M16 3v4M3 10h18"/>
+          </svg>
           Google Calendar
         </a>
       </div>
@@ -238,13 +254,38 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
 
   .std-location-city { padding-left: 1.2rem; }
 
+  .std-time {
+    font-family: var(--font-script);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    letter-spacing: 0.04em;
+    color: var(--color-text-light);
+    margin-bottom: 0.6rem;
+  }
+
   .std-invite {
     font-family: var(--font-serif);
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.85;
     color: var(--color-text);
-    max-width: 26rem;
+    max-width: 28rem;
     margin: 0 auto 2.5rem;
+  }
+
+  .std-invite p + p { margin-top: 0.9rem; }
+
+  .std-invite-sign {
+    font-family: var(--font-script);
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    margin-top: 1.4rem !important;
+  }
+
+  .std-actions-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
   }
 
   /* ── Actions ── */
