@@ -17,7 +17,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       <img src={`${base}murallas-acuarela.png`} alt="Las Murallas Reales de Ceuta" />
     </div>
 
-    <div class="std-content">
+    <div class="std-head">
       <p class="std-eyebrow">Save the Date</p>
       <div class="std-ornament">✦</div>
 
@@ -34,7 +34,13 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       </h1>
 
       <div class="std-rule"></div>
+    </div>
 
+    <div class="std-img std-img--right">
+      <img src={`${base}puerto-acuarela2.png`} alt="Puerto de Ceuta" />
+    </div>
+
+    <div class="std-body">
       <p class="std-date">Sábado, 13 de Marzo de 2027</p>
       <p class="std-time">De 13:00 a 01:00</p>
       <div class="std-location">
@@ -60,7 +66,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
           perdido. Lo demás — horarios, autobuses, dónde dormir — os lo iremos
           contando.
         </p>
-        <p class="std-invite-sign">Nos vemos en Jerez.</p>
+        <p class="std-invite-sign">Nos vemos en Marzo.</p>
       </div>
 
       <p class="std-actions-label">Guardad la fecha en vuestro calendario</p>
@@ -80,10 +86,6 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
           Google Calendar
         </a>
       </div>
-    </div>
-
-    <div class="std-img std-img--right">
-      <img src={`${base}puerto-acuarela2.png`} alt="Puerto de Ceuta" />
     </div>
   </main>
 
@@ -125,7 +127,11 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
+    grid-template-areas:
+      "left head  right"
+      "left body  right";
     align-items: center;
+    align-content: center;
     background: var(--color-bg);
     overflow: hidden;
     padding: 3rem 0;
@@ -138,8 +144,8 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     min-width: 0;
   }
 
-  .std-img--left  { justify-content: flex-end; }
-  .std-img--right { justify-content: flex-end; padding-right: 2rem; }
+  .std-img--left  { grid-area: left;  justify-content: flex-end; }
+  .std-img--right { grid-area: right; justify-content: flex-end; padding-right: 2rem; }
 
   .std-img img {
     width: auto;
@@ -157,21 +163,28 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
   }
 
   /* ── Centre card ── */
-  .std-content {
+  .std-head,
+  .std-body {
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 2rem 2.5rem;
     max-width: 34rem;
+    margin-inline: auto;
     animation: stdFade 1.4s ease both;
   }
 
+  .std-head { grid-area: head; padding: 2rem 2.5rem 0; }
+  .std-body { grid-area: body; padding: 0 2.5rem 2rem; }
+
   .std-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 2.6vw, 1.7rem);
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--color-text-light);
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
+    /* la letra final arrastra el espaciado: se compensa para centrar */
+    text-indent: 0.28em;
   }
 
   .std-ornament {
@@ -183,7 +196,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
 
   .std-names {
     font-family: var(--font-script);
-    font-size: clamp(2.2rem, 4vw, 4.5rem);
+    font-size: clamp(2.6rem, 4.6vw, 5.2rem);
     font-weight: 200;
     letter-spacing: 0.1em;
     margin-bottom: 1.5rem;
@@ -228,7 +241,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
 
   .std-date {
     font-family: var(--font-script);
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-size: clamp(1.5rem, 2.6vw, 1.9rem);
     letter-spacing: 0.04em;
     color: var(--color-text);
     margin-bottom: 0.5rem;
@@ -240,7 +253,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     align-items: center;
     gap: 0.3rem;
     font-family: var(--font-script);
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    font-size: clamp(1.35rem, 2.3vw, 1.6rem);
     letter-spacing: 0.03em;
     color: var(--color-text-light);
     margin-bottom: 2rem;
@@ -256,15 +269,15 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
 
   .std-time {
     font-family: var(--font-script);
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    font-size: clamp(1.35rem, 2.3vw, 1.6rem);
     letter-spacing: 0.04em;
     color: var(--color-text-light);
     margin-bottom: 0.6rem;
   }
 
   .std-invite {
-    font-family: var(--font-serif);
-    font-size: 1rem;
+    font-family: var(--font-invite);
+    font-size: 1.02rem;
     line-height: 1.85;
     color: var(--color-text);
     max-width: 28rem;
@@ -275,7 +288,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
 
   .std-invite-sign {
     font-family: var(--font-script);
-    font-size: 1.35rem;
+    font-size: 1.9rem;
     color: var(--color-accent);
     margin-top: 1.4rem !important;
   }
@@ -346,9 +359,6 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       padding-right: 0;
     }
 
-    .std-img--left  { order: 1; }
-    .std-content    { order: 2; }
-    .std-img--right { order: 3; }
 
     .std-img img,
     .std-img--right img {
@@ -359,14 +369,15 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       object-fit: contain;
     }
 
-    .std-content { padding: 1.5rem 0.5rem; }
+    .std-head { padding: 1.5rem 0.5rem 0.5rem; }
+    .std-body { padding: 0.5rem 0.5rem 1.5rem; }
 
     .std-names {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: nowrap;
-      font-size: clamp(1.2rem, 5.5vw, 2.2rem);
+      font-size: clamp(1.6rem, 6.5vw, 2.6rem);
       gap: 0.3em;
       margin-bottom: 1rem;
     }
