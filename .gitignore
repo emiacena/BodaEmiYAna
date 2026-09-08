@@ -1,0 +1,14 @@
+# dependencias
+node_modules/
+
+# salida del build (la genera GitHub Actions al desplegar)
+dist/
+
+# ficheros generados por Astro
+.astro/
+
+# entorno / editor
+.env
+.env.production
+.DS_Store
+*.log

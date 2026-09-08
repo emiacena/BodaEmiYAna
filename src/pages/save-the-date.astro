@@ -1,0 +1,456 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Countdown from '../components/Countdown.astro';
+import { hotels, mapsUrl } from '../data/hotels';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+  + '&dates=20270313T110000Z/20270313T220000Z'
+  + '&text=' + encodeURIComponent('Boda de Ana & Emi')
+  + '&details=' + encodeURIComponent('Nos casamos y queremos celebrarlo con vosotros.')
+  + '&location=' + encodeURIComponent('Finca Los Azahares, Jerez de la Frontera');
+---
+<Layout title="Ana & Emi — Save the Date">
+  <main class="std">
+    <div class="std-img std-img--left">
+      <img src={`${base}murallas-acuarela.png`} alt="Las Murallas Reales de Ceuta" />
+    </div>
+
+    <div class="std-content">
+      <p class="std-eyebrow">Save the Date</p>
+      <div class="std-ornament">✦</div>
+
+      <h1 class="std-names">
+        <span class="std-name-pair">
+          <img src={`${base}icon-bellota.png`} class="std-icon" alt="" aria-hidden="true" />
+          Ana
+        </span>
+        <em>&amp;</em>
+        <span class="std-name-pair">
+          Emi
+          <img src={`${base}icon-dedal.png`} class="std-icon std-icon--flip" alt="" aria-hidden="true" />
+        </span>
+      </h1>
+
+      <div class="std-rule"></div>
+
+      <p class="std-date">Sábado, 13 de Marzo de 2027</p>
+      <div class="std-location">
+        <span class="std-location-venue">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          Finca Los Azahares
+        </span>
+        <span class="std-location-city">Jerez de la Frontera</span>
+      </div>
+
+      <p class="std-invite">
+        Con toda nuestra ilusión, os hacemos llegar nuestra invitación formal
+        para acompañarnos en este día tan especial.
+      </p>
+
+      <div class="std-actions">
+        <a class="std-btn std-btn--primary" href={`${base}boda-ana-y-emi.ics`} download>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M8 3v4M16 3v4M3 10h18"/>
+          </svg>
+          Añadir al calendario
+        </a>
+        <a class="std-btn" href={gcal} target="_blank" rel="noopener noreferrer">
+          Google Calendar
+        </a>
+      </div>
+    </div>
+
+    <div class="std-img std-img--right">
+      <img src={`${base}puerto-acuarela2.png`} alt="Puerto de Ceuta" />
+    </div>
+  </main>
+
+  <Countdown />
+
+  <section class="std-stay">
+    <div class="std-stay-inner">
+      <h2 class="std-stay-title">Dónde alojarse</h2>
+      <div class="std-stay-divider"><span>✦</span></div>
+      <p class="std-stay-intro">
+        Si vais a quedaros a dormir en Jerez, os dejamos algunas recomendaciones.
+        Merece la pena reservar con tiempo.
+      </p>
+
+      <ul class="std-hotels">
+        {hotels.map(h => (
+          <li class="std-hotel">
+            <div class="std-hotel-text">
+              <p class="std-hotel-zone">{h.zone}</p>
+              <h3 class="std-hotel-name">{h.name}</h3>
+              <p class="std-hotel-note">{h.note}</p>
+            </div>
+            <a class="std-hotel-link" href={mapsUrl(h.name)} target="_blank" rel="noopener noreferrer">
+              Ver en el mapa
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .std {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: var(--color-bg);
+    overflow: hidden;
+    padding: 3rem 0;
+  }
+
+  /* ── Watercolour images ── */
+  .std-img {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .std-img--left  { justify-content: flex-end; }
+  .std-img--right { justify-content: flex-end; padding-right: 2rem; }
+
+  .std-img img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .std-img--right img {
+    height: min(530px, 60vh);
+    max-height: none;
+    max-width: none;
+  }
+
+  /* ── Centre card ── */
+  .std-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem 2.5rem;
+    max-width: 34rem;
+    animation: stdFade 1.4s ease both;
+  }
+
+  .std-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .std-ornament {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.4em;
+  }
+
+  .std-names {
+    font-family: var(--font-script);
+    font-size: clamp(2.2rem, 4vw, 4.5rem);
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    color: var(--color-text);
+  }
+
+  .std-names em {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.20);
+  }
+
+  .std-name-pair {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .std-icon {
+    width: 0.95em;
+    height: 0.95em;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    opacity: 0.15;
+    margin-right: -0.05em;
+  }
+
+  .std-icon--flip {
+    width: 1.1em;
+    height: 1.1em;
+    transform: scaleX(-1);
+    margin-left: -0.25em;
+    margin-right: 0;
+  }
+
+  .std-rule {
+    width: 56px;
+    height: 1px;
+    background: var(--color-border);
+    margin: 0 auto 1.5rem;
+  }
+
+  .std-date {
+    font-family: var(--font-script);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    letter-spacing: 0.04em;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .std-location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-script);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    letter-spacing: 0.03em;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+  }
+
+  .std-location-venue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .std-location-city { padding-left: 1.2rem; }
+
+  .std-invite {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    max-width: 26rem;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* ── Actions ── */
+  .std-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .std-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 0.9rem 1.8rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+  }
+
+  .std-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  .std-btn--primary {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  .std-btn--primary:hover {
+    background: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
+    color: var(--color-white);
+  }
+
+  @keyframes stdFade {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ── Mobile: stacked ── */
+  @media (max-width: 780px) {
+    .std {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+    }
+
+    .std-img {
+      width: 100%;
+      justify-content: center;
+      padding-right: 0;
+    }
+
+    .std-img--left  { order: 1; }
+    .std-content    { order: 2; }
+    .std-img--right { order: 3; }
+
+    .std-img img,
+    .std-img--right img {
+      height: 140px;
+      width: auto;
+      max-height: none;
+      max-width: 60vw;
+      object-fit: contain;
+    }
+
+    .std-content { padding: 1.5rem 0.5rem; }
+
+    .std-names {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      font-size: clamp(1.2rem, 5.5vw, 2.2rem);
+      gap: 0.3em;
+      margin-bottom: 1rem;
+    }
+
+    .std-btn {
+      flex: 1 1 100%;
+      justify-content: center;
+    }
+  }
+
+  /* ── Alojamiento ── */
+  .std-stay {
+    padding: 5rem 1.5rem;
+    background: var(--color-surface);
+  }
+
+  .std-stay-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .std-stay-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .std-stay-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .std-stay-divider::before,
+  .std-stay-divider::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .std-stay-divider span {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+  }
+
+  .std-stay-intro {
+    max-width: 34rem;
+    margin: 0 auto 2.8rem;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  .std-hotels {
+    list-style: none;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .std-hotel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .std-hotel:last-child { border-bottom: 1px solid var(--color-border); }
+
+  .std-hotel-text { min-width: 0; }
+
+  .std-hotel-zone {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .std-hotel-name {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+  }
+
+  .std-hotel-note {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+  }
+
+  .std-hotel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    transition: color 0.25s, gap 0.25s;
+  }
+
+  .std-hotel-link:hover {
+    color: var(--color-accent-dark);
+    gap: 0.7rem;
+  }
+
+  @media (max-width: 680px) {
+    .std-stay { padding: 3.5rem 1.25rem; }
+
+    .std-hotel {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+  }
+</style>

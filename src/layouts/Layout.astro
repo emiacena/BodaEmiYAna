@@ -1,8 +1,9 @@
 ---
 interface Props {
   title?: string;
+  noindex?: boolean;
 }
-const { title = 'Nuestra Boda' } = Astro.props;
+const { title = 'Nuestra Boda', noindex = false } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -10,12 +11,14 @@ const { title = 'Nuestra Boda' } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Os invitamos a celebrar nuestra boda" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Moontime&family=Ovo&family=Open+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
+      crossorigin="anonymous"
     />
   </head>
   <body>
@@ -39,9 +42,9 @@ const { title = 'Nuestra Boda' } = Astro.props;
     --color-accent-dark: #4A5442;
     --color-white: #FFFFFF;
     --color-border: #CEC8C0;
-    --font-script: 'Moontime', cursive;
+    --font-script: 'Moontime', 'Segoe Script', 'Brush Script MT', 'Lucida Handwriting', cursive;
     --font-serif: 'Ovo', Georgia, serif;
-    --font-sans: 'Open Sans', system-ui, sans-serif;
+    --font-sans: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --section-padding: 5rem 1.5rem;
     --max-width: 900px;
   }

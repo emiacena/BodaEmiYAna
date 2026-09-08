@@ -1,27 +1,5 @@
 ---
-const hotels = [
-  {
-    name: 'Hotel Nombre 1',
-    stars: '★★★★',
-    address: 'Calle Ejemplo, 10 · Ceuta',
-    phone: '+34 956 000 000',
-    web: '#',
-  },
-  {
-    name: 'Hotel Nombre 2',
-    stars: '★★★★',
-    address: 'Calle Ejemplo, 24 · Ceuta',
-    phone: '+34 956 000 001',
-    web: '#',
-  },
-  {
-    name: 'Hotel Nombre 3',
-    stars: '★★★',
-    address: 'Calle Ejemplo, 5 · Ceuta',
-    phone: '+34 956 000 002',
-    web: '#',
-  },
-];
+import { hotels, mapsUrl } from '../data/hotels';
 ---
 <section id="alojamiento" class="accommodation-section">
   <div class="container">
@@ -29,17 +7,19 @@ const hotels = [
     <div class="section-divider reveal"><span>✦</span></div>
 
     <p class="accommodation-intro reveal">
-      Para facilitar vuestra estancia, os proponemos algunos hoteles cercanos a la finca.
-      La disponibilidad en la zona es limitada, así que os animamos a reservar con antelación.
+      Para facilitar vuestra estancia, os proponemos algunos hoteles en Jerez de la Frontera.
+      Os animamos a reservar con antelación.
     </p>
 
     <div class="hotel-grid">
       {hotels.map(h => (
         <div class="hotel-card reveal">
-          <p class="hotel-stars">{h.stars}</p>
+          <p class="hotel-zone">{h.zone}</p>
           <h3 class="hotel-name">{h.name}</h3>
-          <p class="hotel-address">{h.address}</p>
-          <a href={`tel:${h.phone.replace(/\s/g, '')}`} class="hotel-phone">{h.phone}</a>
+          <p class="hotel-note">{h.note}</p>
+          <a href={mapsUrl(h.name)} class="hotel-link" target="_blank" rel="noopener noreferrer">
+            Ver en el mapa
+          </a>
         </div>
       ))}
     </div>
@@ -63,7 +43,7 @@ const hotels = [
 
   .hotel-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
     max-width: var(--max-width);
     margin: 0 auto;
@@ -81,7 +61,7 @@ const hotels = [
     box-shadow: 0 4px 20px rgba(184,147,106,0.1);
   }
 
-  .hotel-stars {
+  .hotel-zone {
     font-size: 0.75rem;
     color: var(--color-accent);
     letter-spacing: 0.1em;
@@ -95,21 +75,21 @@ const hotels = [
     margin-bottom: 0.6rem;
   }
 
-  .hotel-address {
+  .hotel-note {
     font-size: 0.82rem;
     color: var(--color-text-light);
     margin-bottom: 1rem;
     line-height: 1.6;
   }
 
-  .hotel-phone {
+  .hotel-link {
     font-size: 0.8rem;
     color: var(--color-accent);
     letter-spacing: 0.05em;
     transition: color 0.2s;
   }
 
-  .hotel-phone:hover { color: var(--color-accent-dark); }
+  .hotel-link:hover { color: var(--color-accent-dark); }
 
   @media (max-width: 680px) {
     .hotel-grid { grid-template-columns: 1fr; max-width: 400px; margin-inline: auto; }

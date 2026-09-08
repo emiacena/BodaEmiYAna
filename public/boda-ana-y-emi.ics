@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ana y Emi//Boda 2027//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:boda-ana-emi-20270313@emiacena.github.io
+DTSTAMP:20260908T000000Z
+DTSTART:20270313T110000Z
+DTEND:20270313T220000Z
+SUMMARY:Boda de Ana & Emi
+DESCRIPTION:Nos casamos y queremos celebrarlo con vosotros.
+LOCATION:Finca Los Azahares\, Jerez de la Frontera
+URL:https://emiacena.github.io/BodaEmiYAna/save-the-date
+END:VEVENT
+END:VCALENDAR

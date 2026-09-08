@@ -1,0 +1,21 @@
+---
+// La raíz redirige al Save the Date, que es la única página pública por ahora.
+// El sitio completo vive en /home (sin enlaces y con noindex).
+const target = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}save-the-date`;
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>Ana &amp; Emi</title>
+  </head>
+  <body>
+    <p>Redirigiendo a <a href={target}>Save the Date</a>…</p>
+    <script is:inline define:vars={{ target }}>
+      window.location.replace(target);
+    </script>
+  </body>
+</html>
