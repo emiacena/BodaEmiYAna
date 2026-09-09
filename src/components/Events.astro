@@ -1,4 +1,5 @@
 ---
+import { VENUE_MAP_URL } from '../data/venue';
 ---
 <section id="el-dia" class="events-section">
   <div class="container">
@@ -18,7 +19,7 @@
           </div>
           <div class="event-detail">
             <span class="detail-label">Lugar</span>
-            <span>Finca Los Azahares<br/><em>Jerez de la Frontera</em></span>
+            <span><a class="venue-link" href={VENUE_MAP_URL} target="_blank" rel="noopener noreferrer">Finca Los Azahares</a><br/><em>Jerez de la Frontera</em></span>
           </div>
           <div class="event-detail">
             <span class="detail-label">Fecha</span>
@@ -230,5 +231,16 @@
       width: 40px;
       height: 1px;
     }
+  }
+
+  .venue-link {
+    color: inherit;
+    border-bottom: 1px solid var(--color-border);
+    transition: color 0.25s, border-color 0.25s;
+  }
+
+  .venue-link:hover {
+    color: var(--color-accent);
+    border-bottom-color: currentColor;
   }
 </style>

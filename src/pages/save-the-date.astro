@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Countdown from '../components/Countdown.astro';
 import { hotels, mapsUrl, zones } from '../data/hotels';
+import { VENUE_MAP_URL } from '../data/venue';
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
@@ -44,20 +45,20 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       <p class="std-date">Sábado, 13 de Marzo de 2027</p>
       <p class="std-time">De 13:00 a 01:00</p>
       <div class="std-location">
-        <span class="std-location-venue">
+        <a class="std-location-venue" href={VENUE_MAP_URL} target="_blank" rel="noopener noreferrer">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
             <circle cx="12" cy="9" r="2.5"/>
           </svg>
           Finca Los Azahares
-        </span>
+        </a>
         <span class="std-location-city">Jerez de la Frontera</span>
       </div>
 
       <div class="std-invite">
         <p class="std-invite-lead">
-          Después de solo 13 años, no sabíamos si era precipitado, pero
-          finalmente nos casamos.
+          Después de 13 años, a lo mejor es un poco precipitado, pero nos
+          casamos.
         </p>
         <p class="std-invite-aside">
           (Nos hemos pegado unas vacaciones relax de la boda, pero ya nos hemos
@@ -292,6 +293,14 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
+   color: inherit;
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s, border-color 0.25s;
+  }
+
+  .std-location-venue:hover {
+    color: var(--color-accent);
+    border-bottom-color: currentColor;
   }
 
   .std-location-city { padding-left: 1.2rem; }
@@ -316,8 +325,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
   .std-invite p + p { margin-top: 0.9rem; }
 
   .std-invite-lead {
-    font-size: 1.25rem;
-    line-height: 1.55;
+    font-weight: 700;
     color: var(--color-text);
     margin-bottom: 0.6rem;
   }
