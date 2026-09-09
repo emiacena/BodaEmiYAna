@@ -21,7 +21,7 @@ export const hotels: Hotel[] = [
   {
     name: 'Punta Bermeja Premium Beach Hotel',
     city: 'El Puerto de Santa María',
-    note: 'Junto a la playa, en la zona de Vistahermosa. 40% de descuento para mayores de 60 años.',
+    note: 'Junto a la playa, en la zona de Vistahermosa. 40% de descuento para mayores de 60 años en temporada baja.',
   },
   {
     name: 'Soho Boutique Vistahermosa',
@@ -52,4 +52,5 @@ export const zones: string[] = [
   'Las Redes',
   'El Águila',
   'Vistahermosa',
+  'El Centro',
 ];
