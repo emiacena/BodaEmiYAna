@@ -21,12 +21,12 @@ export const hotels: Hotel[] = [
   {
     name: 'Punta Bermeja Premium Beach Hotel',
     city: 'El Puerto de Santa María',
-    note: 'Junto a la playa, en la zona de Vistahermosa. Tienen descuento para mayores de 60 años.',
+    note: 'Junto a la playa, en la zona de Vistahermosa. 40% de descuento para mayores de 60 años.',
   },
   {
-    name: 'Los Jándalos Vistahermosa',
+    name: 'Soho Boutique Vistahermosa',
     city: 'El Puerto de Santa María',
-    note: 'Hotel y apartamentos con spa y piscina.',
+    note: 'Los antiguos Jándalos Vistahermosa. Hotel y apartamentos con spa y piscina.',
   },
   {
     name: 'Soho Boutique Puerto',
@@ -40,3 +40,16 @@ export function mapsUrl(hotel: Hotel): string {
   const query = `${hotel.name}, ${hotel.city}`;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
+
+/**
+ * Zonas recomendadas para buscar apartamento o casa por Airbnb / Booking.
+ * Todas en El Puerto de Santa María.
+ */
+export const zones: string[] = [
+  'Fuentebravía',
+  'El Manantial',
+  'El Ancla',
+  'Las Redes',
+  'El Águila',
+  'Vistahermosa',
+];

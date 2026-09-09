@@ -1,5 +1,5 @@
 ---
-import { hotels, mapsUrl } from '../data/hotels';
+import { hotels, mapsUrl, zones } from '../data/hotels';
 ---
 <section id="alojamiento" class="accommodation-section">
   <div class="container">
@@ -11,9 +11,7 @@ import { hotels, mapsUrl } from '../data/hotels';
         de Santa María: la preboda será algo sencillo, pero será por aquí. Y si
         el tiempo acompaña, hay playa a mano.</p>
       <p>Marzo es temporada baja, así que hay sitio de sobra y se nota en los
-        precios. Estos son los hoteles que conocemos, pero si venís en familia o
-        en grupo quizá salga más cómodo — y más barato — alquilar un apartamento
-        o una casa por Airbnb o Booking.</p>
+        precios. Estos son los hoteles que conocemos.</p>
     </div>
 
     <div class="hotel-grid">
@@ -27,6 +25,24 @@ import { hotels, mapsUrl } from '../data/hotels';
           </a>
         </div>
       ))}
+    </div>
+
+    <div class="rent-block reveal">
+      <h3 class="rent-title">Apartamentos y casas</h3>
+      <p class="rent-text">
+        Por Airbnb o Booking hay mucha oferta, y para una familia o un grupo
+        suele salir mejor de precio. Cualquier zona de El Puerto está bien,
+        pero estas son las que mejor conocemos:
+      </p>
+      <ul class="zone-list">
+        {zones.map(z => <li>{z}</li>)}
+      </ul>
+      <p class="rent-note">
+        Los autobuses saldrán del <strong>Kiosko de Rafa</strong>, en
+        Fuentebravía, y de <strong>El Comercial</strong>. El centro también es perfecto para
+        alojarse: si se queda mucha gente por allí, añadiremos una parada en la
+        Plaza de Toros.
+      </p>
     </div>
   </div>
 </section>
@@ -100,5 +116,55 @@ import { hotels, mapsUrl } from '../data/hotels';
 
   @media (max-width: 680px) {
     .hotel-grid { grid-template-columns: 1fr; max-width: 400px; margin-inline: auto; }
+  }
+
+  /* ── Apartamentos ── */
+  .rent-block {
+    max-width: 40rem;
+    margin: 3.2rem auto 0;
+    text-align: center;
+  }
+
+  .rent-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.9rem;
+  }
+
+  .rent-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+    margin-bottom: 1.4rem;
+  }
+
+  .zone-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .zone-list li {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    padding: 0.4rem 0.95rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+  }
+
+  .rent-note {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  .rent-note strong {
+    font-weight: 500;
+    color: var(--color-text);
   }
 </style>
