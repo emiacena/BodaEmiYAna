@@ -1,44 +1,42 @@
 export interface Hotel {
   /** Nombre tal y como aparece en Google Maps. */
   name: string;
-  /** Etiqueta corta de zona o categoría. */
-  zone: string;
+  /** Localidad. Ojo: los hoteles NO están en Jerez, sino en El Puerto. */
+  city: string;
   /** Una línea describiendo el hotel. */
   note: string;
 }
 
 /**
- * Recomendaciones de alojamiento en Jerez de la Frontera.
+ * Recomendaciones de alojamiento.
  *
- * Los enlaces se resuelven contra Google Maps a partir del nombre, así que el
- * teléfono, la dirección y la disponibilidad los da siempre el propio hotel.
- * Si negociáis tarifa o código de reserva con alguno, añadidlo en `note`.
+ * La boda es en Jerez, pero el alojamiento que recomendamos está en El Puerto
+ * de Santa María. Por eso cada hotel lleva su `city`: el enlace al mapa se
+ * construye con ella y mandar a alguien a la ciudad equivocada sería un lío.
+ *
+ * El teléfono, la dirección y la disponibilidad los da siempre la ficha del
+ * hotel. Si negociáis tarifa o código de reserva, añadidlo en `note`.
  */
 export const hotels: Hotel[] = [
   {
-    name: 'Casa Palacio María Luisa',
-    zone: 'Centro histórico',
-    note: 'Cinco estrellas gran lujo, en pleno corazón de Jerez.',
+    name: 'Punta Bermeja Premium Beach Hotel',
+    city: 'El Puerto de Santa María',
+    note: 'Junto a la playa, en la zona de Vistahermosa. Tienen descuento para mayores de 60 años.',
   },
   {
-    name: 'Hotel Bodega Tío Pepe',
-    zone: 'Centro histórico',
-    note: 'Dentro de las bodegas de González Byass, junto a la catedral.',
+    name: 'Los Jándalos Vistahermosa',
+    city: 'El Puerto de Santa María',
+    note: 'Hotel y apartamentos con spa y piscina.',
   },
   {
-    name: 'Hotel Villa Jerez',
-    zone: 'Centro',
-    note: 'Hotel con jardines, a unos pasos de la Real Escuela Ecuestre.',
-  },
-  {
-    name: 'Hipotels Sherry Park',
-    zone: 'Avenida',
-    note: 'Cuatro estrellas con piscina y jardín, buena relación calidad-precio.',
+    name: 'Soho Boutique Puerto',
+    city: 'El Puerto de Santa María',
+    note: 'Cuatro estrellas, cerca del centro.',
   },
 ];
 
 /** Enlace de búsqueda en Google Maps: siempre resuelve a la ficha real del hotel. */
-export function mapsUrl(name: string): string {
-  const query = `${name}, Jerez de la Frontera`;
+export function mapsUrl(hotel: Hotel): string {
+  const query = `${hotel.name}, ${hotel.city}`;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }

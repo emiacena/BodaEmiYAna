@@ -55,18 +55,24 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
       </div>
 
       <div class="std-invite">
-        <p>Después de darle muchas vueltas, ya hay fecha: nos casamos.</p>
         <p>
-          Y como esto no tendría ninguna gracia sin vosotros, aquí va nuestra
-          invitación. Será un día largo, de los de comer sin prisa, bailar
-          hasta que cierren y volver a casa sin voz.
+          Después de 13 años juntos, hemos decidido precipitarnos.
+          Nos hemos pegado unas vacaciones de la boda, pero ya
+          estamos otra vez con la organización: todos sabemos que lo nuestro es
+          dejarlo todo para el último momento.
         </p>
         <p>
-          De momento solo os pedimos una cosa: apuntad el día y no lo deis por
-          perdido. Lo demás — horarios, autobuses, dónde dormir — os lo iremos
-          contando.
+          Si has recibido este mensaje de nuestra parte, es que esta boda
+          tendría mucha menos gracia sin ti. Así que considéralo una invitación
+          formal. Será un día largo, de los de comer sin prisa, bailar hasta
+          que cierren y volver a casa sin voz.
         </p>
-        <p class="std-invite-sign">Nos vemos en Marzo.</p>
+        <p>
+          De momento solo te pedimos que apuntes el día. Lo demás — horarios,
+          autobuses, preboda, pre-preboda — te lo iremos contando.
+        </p>
+        <p class="std-invite-sign">Nos vemos el 13 de Marzo.</p>
+        <p class="std-invite-ps">Trece años y un día trece. No ha sido a propósito.</p>
       </div>
 
       <p class="std-actions-label">Guardad la fecha en vuestro calendario</p>
@@ -95,20 +101,25 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     <div class="std-stay-inner">
       <h2 class="std-stay-title">Dónde alojarse</h2>
       <div class="std-stay-divider"><span>✦</span></div>
-      <p class="std-stay-intro">
-        Si vais a quedaros a dormir en Jerez, os dejamos algunas recomendaciones.
-        Merece la pena reservar con tiempo.
-      </p>
+      <div class="std-stay-intro">
+        <p>Aunque la boda es en Jerez, nuestra recomendación es dormir en El Puerto
+        de Santa María: la preboda será algo sencillo, pero será por aquí. Y si
+        el tiempo acompaña, hay playa a mano.</p>
+        <p>Marzo es temporada baja, así que hay sitio de sobra y se nota en los
+        precios. Estos son los hoteles que conocemos, pero si venís en familia o
+        en grupo quizá salga más cómodo — y más barato — alquilar un apartamento
+        o una casa por Airbnb o Booking.</p>
+      </div>
 
       <ul class="std-hotels">
         {hotels.map(h => (
           <li class="std-hotel">
             <div class="std-hotel-text">
-              <p class="std-hotel-zone">{h.zone}</p>
+              <p class="std-hotel-city">{h.city}</p>
               <h3 class="std-hotel-name">{h.name}</h3>
               <p class="std-hotel-note">{h.note}</p>
             </div>
-            <a class="std-hotel-link" href={mapsUrl(h.name)} target="_blank" rel="noopener noreferrer">
+            <a class="std-hotel-link" href={mapsUrl(h)} target="_blank" rel="noopener noreferrer">
               Ver en el mapa
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"/>
@@ -293,6 +304,13 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     margin-top: 1.4rem !important;
   }
 
+  .std-invite-ps {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-top: 0.4rem !important;
+  }
+
   .std-actions-label {
     font-size: 0.65rem;
     letter-spacing: 0.22em;
@@ -438,6 +456,8 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     color: var(--color-text-light);
   }
 
+  .std-stay-intro p + p { margin-top: 0.9rem; }
+
   .std-hotels {
     list-style: none;
     max-width: 40rem;
@@ -457,7 +477,7 @@ const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
 
   .std-hotel-text { min-width: 0; }
 
-  .std-hotel-zone {
+  .std-hotel-city {
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;

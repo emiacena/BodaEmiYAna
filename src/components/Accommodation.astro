@@ -6,18 +6,23 @@ import { hotels, mapsUrl } from '../data/hotels';
     <h2 class="section-title reveal">Alojamiento</h2>
     <div class="section-divider reveal"><span>✦</span></div>
 
-    <p class="accommodation-intro reveal">
-      Para facilitar vuestra estancia, os proponemos algunos hoteles en Jerez de la Frontera.
-      Os animamos a reservar con antelación.
-    </p>
+    <div class="accommodation-intro reveal">
+      <p>Aunque la boda es en Jerez, nuestra recomendación es dormir en El Puerto
+        de Santa María: la preboda será algo sencillo, pero será por aquí. Y si
+        el tiempo acompaña, hay playa a mano.</p>
+      <p>Marzo es temporada baja, así que hay sitio de sobra y se nota en los
+        precios. Estos son los hoteles que conocemos, pero si venís en familia o
+        en grupo quizá salga más cómodo — y más barato — alquilar un apartamento
+        o una casa por Airbnb o Booking.</p>
+    </div>
 
     <div class="hotel-grid">
       {hotels.map(h => (
         <div class="hotel-card reveal">
-          <p class="hotel-zone">{h.zone}</p>
+          <p class="hotel-city">{h.city}</p>
           <h3 class="hotel-name">{h.name}</h3>
           <p class="hotel-note">{h.note}</p>
-          <a href={mapsUrl(h.name)} class="hotel-link" target="_blank" rel="noopener noreferrer">
+          <a href={mapsUrl(h)} class="hotel-link" target="_blank" rel="noopener noreferrer">
             Ver en el mapa
           </a>
         </div>
@@ -41,9 +46,11 @@ import { hotels, mapsUrl } from '../data/hotels';
     line-height: 1.8;
   }
 
+  .accommodation-intro p + p { margin-top: 0.9rem; }
+
   .hotel-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
     max-width: var(--max-width);
     margin: 0 auto;
@@ -61,7 +68,7 @@ import { hotels, mapsUrl } from '../data/hotels';
     box-shadow: 0 4px 20px rgba(184,147,106,0.1);
   }
 
-  .hotel-zone {
+  .hotel-city {
     font-size: 0.75rem;
     color: var(--color-accent);
     letter-spacing: 0.1em;
